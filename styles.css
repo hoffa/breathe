@@ -1,9 +1,9 @@
 :root {
   --bg: #010203;
   --bg-shade: #03070d;
-  --halo-a: rgba(78, 175, 255, 0.18);
-  --halo-b: rgba(121, 229, 255, 0.1);
-  --halo-c: rgba(231, 249, 255, 0.08);
+  --halo-a: rgba(92, 165, 224, 0.12);
+  --halo-b: rgba(141, 203, 240, 0.07);
+  --halo-c: rgba(228, 242, 250, 0.05);
   --duration: 10s;
 }
 
@@ -21,7 +21,7 @@ body {
 body {
   overflow: hidden;
   background:
-    radial-gradient(circle at center, rgba(91, 170, 255, 0.08), transparent 24%),
+    radial-gradient(circle at center, rgba(91, 170, 255, 0.05), transparent 24%),
     radial-gradient(circle at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.82) 56%, rgba(0, 0, 0, 0.98) 100%),
     var(--bg);
   font-family: sans-serif;
@@ -51,8 +51,8 @@ body {
 .halo-outer {
   width: min(112vmin, 72rem);
   background:
-    radial-gradient(circle, var(--halo-a) 0, rgba(64, 124, 255, 0.1) 38%, transparent 68%);
-  opacity: 0.5;
+    radial-gradient(circle, var(--halo-a) 0, rgba(86, 142, 214, 0.06) 38%, transparent 68%);
+  opacity: 0.42;
 }
 
 .halo-inner {
@@ -60,11 +60,11 @@ body {
   border-radius: 50%;
   background:
     radial-gradient(circle, var(--halo-c) 0, var(--halo-b) 44%, transparent 70%);
-  opacity: 0.72;
+  opacity: 0.58;
 }
 
 .flower {
-  width: min(72vmin, 42rem);
+  width: min(66vmin, 38rem);
   aspect-ratio: 1;
   overflow: visible;
   isolation: isolate;
@@ -78,7 +78,7 @@ body {
 
 .flower__group--echo {
   animation: breathe-echo var(--duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  opacity: 0.28;
+  opacity: 0.18;
 }
 
 .flower__group--main {
@@ -91,44 +91,44 @@ body {
 }
 
 .flower__group--main .petal {
-  opacity: 0.68;
+  opacity: 0.54;
 }
 
 .flower__group--echo .petal {
-  opacity: 0.24;
+  opacity: 0.16;
 }
 
 .flower__core {
   fill: url(#core-fill);
   mix-blend-mode: screen;
-  opacity: 0.7;
-  filter: blur(10px);
+  opacity: 0.5;
+  filter: blur(12px);
   animation: breathe-core var(--duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes breathe-main {
   0%,
   100% {
-    transform: scale(0.78);
-    opacity: 0.88;
+    transform: scale(0.8);
+    opacity: 0.8;
   }
 
   50% {
-    transform: scale(1.04);
-    opacity: 1;
+    transform: scale(1);
+    opacity: 0.9;
   }
 }
 
 @keyframes breathe-echo {
   0%,
   100% {
-    transform: scale(0.72);
-    opacity: 0.14;
+    transform: scale(0.76);
+    opacity: 0.1;
   }
 
   50% {
-    transform: scale(1.1);
-    opacity: 0.3;
+    transform: scale(1.04);
+    opacity: 0.2;
   }
 }
 
@@ -136,25 +136,25 @@ body {
   0%,
   100% {
     transform: scale(0.9);
-    opacity: 0.46;
+    opacity: 0.3;
   }
 
   50% {
-    transform: scale(1.08);
-    opacity: 0.76;
+    transform: scale(1.04);
+    opacity: 0.54;
   }
 }
 
 @keyframes breathe-halo {
   0%,
   100% {
-    transform: scale(0.8);
-    opacity: 0.42;
+    transform: scale(0.84);
+    opacity: 0.28;
   }
 
   50% {
-    transform: scale(1.08);
-    opacity: 0.68;
+    transform: scale(1.02);
+    opacity: 0.46;
   }
 }
 

@@ -5,9 +5,6 @@
   --halo-b: rgba(141, 203, 240, 0.07);
   --halo-c: rgba(228, 242, 250, 0.05);
   --duration: 10s;
-  --app-width: 100vw;
-  --app-height: 100vh;
-  --app-min: 100vmin;
 }
 
 * {
@@ -16,12 +13,10 @@
 
 html,
 body {
-  position: fixed;
-  inset: 0;
   width: 100%;
   height: 100%;
   margin: 0;
-  overflow: clip;
+  overflow: hidden;
 }
 
 body {
@@ -34,25 +29,33 @@ body {
     radial-gradient(circle at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.82) 56%, rgba(0, 0, 0, 0.98) 100%),
     var(--bg);
   font-family: sans-serif;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
 }
 
 .app {
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
   isolation: isolate;
-  overflow: clip;
-  contain: layout paint size style;
+  overflow: hidden;
+  contain: strict;
   pointer-events: none;
 }
 
 .halo,
 .flower {
-  grid-area: 1 / 1;
-  place-self: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
   will-change: transform, opacity;
 }
 
@@ -64,14 +67,16 @@ body {
 }
 
 .halo-outer {
-  width: min(calc(var(--app-min) * 1.12), 72rem);
+  width: min(calc(min(100vw, 100vh) * 1.12), 72rem);
+  width: min(calc(min(100dvw, 100dvh) * 1.12), 72rem);
   background:
     radial-gradient(circle, var(--halo-a) 0, rgba(86, 142, 214, 0.06) 38%, transparent 68%);
   opacity: 0.42;
 }
 
 .halo-inner {
-  width: min(calc(var(--app-min) * 0.72), 42rem);
+  width: min(calc(min(100vw, 100vh) * 0.72), 42rem);
+  width: min(calc(min(100dvw, 100dvh) * 0.72), 42rem);
   border-radius: 50%;
   background:
     radial-gradient(circle, var(--halo-c) 0, var(--halo-b) 44%, transparent 70%);
@@ -79,10 +84,12 @@ body {
 }
 
 .flower {
-  width: min(calc(var(--app-min) * 0.66), 38rem);
+  width: min(calc(min(100vw, 100vh) * 0.66), 38rem);
+  width: min(calc(min(100dvw, 100dvh) * 0.66), 38rem);
   aspect-ratio: 1;
   overflow: hidden;
   isolation: isolate;
+  display: block;
 }
 
 .flower__group,

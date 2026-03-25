@@ -8,23 +8,56 @@
   </head>
   <body>
     <main class="app" aria-label="Breathing animation">
-      <div class="ambient ambient-outer" aria-hidden="true"></div>
-      <div class="ambient ambient-inner" aria-hidden="true"></div>
-      <div class="bloom" aria-hidden="true">
-        <span class="petal"></span>
-        <span class="petal"></span>
-        <span class="petal"></span>
-        <span class="petal"></span>
-        <span class="petal"></span>
-        <span class="petal"></span>
-        <span class="petal"></span>
-        <span class="petal"></span>
-        <span class="petal"></span>
-        <span class="petal"></span>
-        <span class="petal"></span>
-        <span class="petal"></span>
-      </div>
-      <div class="core" aria-hidden="true"></div>
+      <div class="halo halo-outer" aria-hidden="true"></div>
+      <div class="halo halo-inner" aria-hidden="true"></div>
+      <svg
+        class="flower"
+        viewBox="0 0 600 600"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <defs>
+          <linearGradient id="petal-fill" x1="300" y1="96" x2="300" y2="292" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f2fbff" />
+            <stop offset="34%" stop-color="#95e7ff" />
+            <stop offset="72%" stop-color="#397dff" />
+            <stop offset="100%" stop-color="#0f234f" />
+          </linearGradient>
+          <radialGradient id="core-fill" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffffff" />
+            <stop offset="45%" stop-color="#a6eeff" />
+            <stop offset="100%" stop-color="#15346f" />
+          </radialGradient>
+        </defs>
+
+        <g class="flower__group flower__group--echo">
+          <ellipse class="petal" cx="300" cy="186" rx="72" ry="136" />
+          <ellipse class="petal" cx="300" cy="186" rx="72" ry="136" transform="rotate(36 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="72" ry="136" transform="rotate(72 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="72" ry="136" transform="rotate(108 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="72" ry="136" transform="rotate(144 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="72" ry="136" transform="rotate(180 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="72" ry="136" transform="rotate(216 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="72" ry="136" transform="rotate(252 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="72" ry="136" transform="rotate(288 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="72" ry="136" transform="rotate(324 300 300)" />
+        </g>
+
+        <g class="flower__group flower__group--main">
+          <ellipse class="petal" cx="300" cy="186" rx="64" ry="124" />
+          <ellipse class="petal" cx="300" cy="186" rx="64" ry="124" transform="rotate(36 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="64" ry="124" transform="rotate(72 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="64" ry="124" transform="rotate(108 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="64" ry="124" transform="rotate(144 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="64" ry="124" transform="rotate(180 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="64" ry="124" transform="rotate(216 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="64" ry="124" transform="rotate(252 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="64" ry="124" transform="rotate(288 300 300)" />
+          <ellipse class="petal" cx="300" cy="186" rx="64" ry="124" transform="rotate(324 300 300)" />
+        </g>
+
+        <circle class="flower__core" cx="300" cy="300" r="50" />
+      </svg>
     </main>
     <script src="script.js"></script>
   </body>

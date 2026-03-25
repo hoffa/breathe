@@ -34,8 +34,8 @@ body {
 .app {
   position: fixed;
   inset: 0;
-  width: var(--app-width);
-  height: var(--app-height);
+  width: 100%;
+  height: 100%;
   display: grid;
   place-items: center;
   isolation: isolate;
@@ -45,6 +45,7 @@ body {
 .halo,
 .flower {
   grid-area: 1 / 1;
+  place-self: center;
 }
 
 .halo {

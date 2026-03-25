@@ -1,0 +1,191 @@
+:root {
+  --bg: #020304;
+  --mist: rgba(107, 198, 255, 0.12);
+  --mist-strong: rgba(112, 225, 255, 0.2);
+  --petal-a: rgba(105, 214, 255, 0.9);
+  --petal-b: rgba(65, 140, 255, 0.48);
+  --petal-c: rgba(210, 246, 255, 0.92);
+  --duration: 10s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(37, 70, 110, 0.1), transparent 30%),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.74) 55%, rgba(0, 0, 0, 0.96) 100%),
+    var(--bg);
+  font-family: sans-serif;
+}
+
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.ambient,
+.bloom,
+.core {
+  grid-area: 1 / 1;
+}
+
+.ambient {
+  border-radius: 50%;
+  animation: breathe var(--duration) ease-in-out infinite;
+  transform-origin: center;
+  filter: blur(10px);
+}
+
+.ambient-outer {
+  width: min(92vmin, 52rem);
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle, rgba(117, 220, 255, 0.14), rgba(53, 109, 201, 0.08) 44%, transparent 68%);
+  opacity: 0.95;
+}
+
+.ambient-inner {
+  width: min(62vmin, 34rem);
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle, rgba(196, 240, 255, 0.22), rgba(109, 170, 255, 0.08) 38%, transparent 70%);
+  filter: blur(18px);
+}
+
+.bloom {
+  position: relative;
+  width: min(54vmin, 30rem);
+  aspect-ratio: 1;
+  animation: breathe var(--duration) ease-in-out infinite;
+  filter: saturate(1.12);
+}
+
+.petal {
+  --rotation: 0deg;
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--rotation));
+}
+
+.petal::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 31%;
+  height: 48%;
+  border-radius: 999px;
+  transform: translate(-50%, -82%);
+  background:
+    radial-gradient(circle at 50% 28%, var(--petal-c) 0 14%, var(--petal-a) 15% 48%, var(--petal-b) 72%, transparent 100%);
+  box-shadow:
+    0 0 24px rgba(121, 207, 255, 0.24),
+    0 0 64px rgba(60, 127, 255, 0.14);
+  filter: blur(0.2px);
+}
+
+.petal:nth-child(1) {
+  --rotation: 0deg;
+}
+
+.petal:nth-child(2) {
+  --rotation: 30deg;
+}
+
+.petal:nth-child(3) {
+  --rotation: 60deg;
+}
+
+.petal:nth-child(4) {
+  --rotation: 90deg;
+}
+
+.petal:nth-child(5) {
+  --rotation: 120deg;
+}
+
+.petal:nth-child(6) {
+  --rotation: 150deg;
+}
+
+.petal:nth-child(7) {
+  --rotation: 180deg;
+}
+
+.petal:nth-child(8) {
+  --rotation: 210deg;
+}
+
+.petal:nth-child(9) {
+  --rotation: 240deg;
+}
+
+.petal:nth-child(10) {
+  --rotation: 270deg;
+}
+
+.petal:nth-child(11) {
+  --rotation: 300deg;
+}
+
+.petal:nth-child(12) {
+  --rotation: 330deg;
+}
+
+.core {
+  width: min(12vmin, 6.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(239, 252, 255, 0.92), rgba(136, 222, 255, 0.56) 38%, rgba(44, 103, 183, 0.08) 75%, transparent 100%);
+  filter: blur(1px);
+  animation: breathe-core var(--duration) ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(0.72);
+    opacity: 0.76;
+  }
+
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+@keyframes breathe-core {
+  0%,
+  100% {
+    transform: scale(0.84);
+    opacity: 0.74;
+  }
+
+  50% {
+    transform: scale(1.26);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient,
+  .bloom,
+  .core {
+    animation-duration: 20s;
+  }
+}

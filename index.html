@@ -79,15 +79,6 @@
         opacity: 0.42;
       }
 
-      .halo-inner {
-        width: min(calc(min(100vw, 100vh) * 0.72), 42rem);
-        width: min(calc(min(100dvw, 100dvh) * 0.72), 42rem);
-        border-radius: 50%;
-        background:
-          radial-gradient(circle, var(--halo-c) 0, var(--halo-b) 44%, transparent 70%);
-        opacity: 0.58;
-      }
-
       .flower {
         width: min(calc(min(100vw, 100vh) * 0.66), 38rem);
         width: min(calc(min(100dvw, 100dvh) * 0.66), 38rem);
@@ -164,18 +155,17 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .halo,
-        .flower__group,
-        .flower__core {
-          animation-duration: 20s;
-        }
+      .halo,
+      .flower__group,
+      .flower__core {
+        animation-duration: 20s;
+      }
       }
     </style>
   </head>
   <body>
     <main class="app" aria-label="Breathing animation">
       <div class="halo halo-outer" aria-hidden="true"></div>
-      <div class="halo halo-inner" aria-hidden="true"></div>
       <svg
         class="flower"
         viewBox="0 0 600 600"

@@ -54,27 +54,11 @@
         pointer-events: none;
       }
 
-      .halo,
       .flower {
         position: absolute;
         left: 50%;
         top: 50%;
         translate: -50% -50%;
-      }
-
-      .halo {
-        aspect-ratio: 1;
-        border-radius: 50%;
-        animation: breathe-halo var(--duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        transform-origin: center;
-      }
-
-      .halo-outer {
-        width: min(calc(min(100vw, 100vh) * 1.12), 72rem);
-        width: min(calc(min(100dvw, 100dvh) * 1.12), 72rem);
-        background:
-          radial-gradient(circle, var(--halo-a) 0, rgba(86, 142, 214, 0.06) 38%, transparent 68%);
-        opacity: 0.42;
       }
 
       .flower {
@@ -139,21 +123,7 @@
         }
       }
 
-      @keyframes breathe-halo {
-        0%,
-        100% {
-          transform: scale(0.62);
-          opacity: 0.28;
-        }
-
-        40% {
-          transform: scale(1.08);
-          opacity: 0.6;
-        }
-      }
-
       @media (prefers-reduced-motion: reduce) {
-      .halo,
       .flower__group,
       .flower__core {
         animation-duration: 20s;
@@ -163,7 +133,6 @@
   </head>
   <body>
     <main class="app" aria-label="Breathing animation">
-      <div class="halo halo-outer" aria-hidden="true"></div>
       <svg
         class="flower"
         viewBox="0 0 600 600"

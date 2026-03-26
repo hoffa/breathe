@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Breathe</title>
     <style>
-      :root {
-        --bg: #000000;
-        --duration: 10s;
-      }
-
       * {
         box-sizing: border-box;
       }
@@ -27,7 +22,7 @@
         touch-action: none;
         -webkit-user-select: none;
         user-select: none;
-        background: var(--bg);
+        background: #000000;
         font-family: sans-serif;
         position: fixed;
         inset: 0;
@@ -70,7 +65,7 @@
       }
 
       .flower__group--main {
-        animation: breathe-main var(--duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        animation: breathe-main 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       }
 
       .petal {
@@ -87,7 +82,7 @@
         mix-blend-mode: screen;
         opacity: 0.5;
         filter: blur(12px);
-        animation: breathe-core var(--duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        animation: breathe-core 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       }
 
       @keyframes breathe-main {

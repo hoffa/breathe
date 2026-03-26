@@ -131,7 +131,7 @@ body {
 @keyframes breathe-main {
   0%,
   100% {
-    transform: scale(0.74);
+    transform: scale(0.68);
     opacity: 0.8;
   }
 
@@ -144,7 +144,7 @@ body {
 @keyframes breathe-echo {
   0%,
   100% {
-    transform: scale(0.68);
+    transform: scale(0.6);
     opacity: 0.1;
   }
 
@@ -157,7 +157,7 @@ body {
 @keyframes breathe-core {
   0%,
   100% {
-    transform: scale(0.82);
+    transform: scale(0.74);
     opacity: 0.3;
   }
 
@@ -170,7 +170,7 @@ body {
 @keyframes breathe-halo {
   0%,
   100% {
-    transform: scale(0.76);
+    transform: scale(0.68);
     opacity: 0.28;
   }
 

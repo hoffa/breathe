@@ -4,7 +4,197 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Breathe</title>
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --bg: #010203;
+        --bg-shade: #03070d;
+        --halo-a: rgba(92, 165, 224, 0.12);
+        --halo-b: rgba(141, 203, 240, 0.07);
+        --halo-c: rgba(228, 242, 250, 0.05);
+        --duration: 10s;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        overscroll-behavior: none;
+        touch-action: none;
+        -webkit-user-select: none;
+        user-select: none;
+        background:
+          radial-gradient(circle at center, rgba(91, 170, 255, 0.05), transparent 24%),
+          radial-gradient(circle at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.82) 56%, rgba(0, 0, 0, 0.98) 100%),
+          var(--bg);
+        font-family: sans-serif;
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        width: 100dvw;
+        height: 100vh;
+        height: 100dvh;
+      }
+
+      .app {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        width: 100dvw;
+        height: 100vh;
+        height: 100dvh;
+        isolation: isolate;
+        overflow: hidden;
+        contain: strict;
+        pointer-events: none;
+      }
+
+      .halo,
+      .flower {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        will-change: transform, opacity;
+      }
+
+      .halo {
+        aspect-ratio: 1;
+        border-radius: 50%;
+        animation: breathe-halo var(--duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        transform-origin: center;
+      }
+
+      .halo-outer {
+        width: min(calc(min(100vw, 100vh) * 1.12), 72rem);
+        width: min(calc(min(100dvw, 100dvh) * 1.12), 72rem);
+        background:
+          radial-gradient(circle, var(--halo-a) 0, rgba(86, 142, 214, 0.06) 38%, transparent 68%);
+        opacity: 0.42;
+      }
+
+      .halo-inner {
+        width: min(calc(min(100vw, 100vh) * 0.72), 42rem);
+        width: min(calc(min(100dvw, 100dvh) * 0.72), 42rem);
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, var(--halo-c) 0, var(--halo-b) 44%, transparent 70%);
+        opacity: 0.58;
+      }
+
+      .flower {
+        width: min(calc(min(100vw, 100vh) * 0.66), 38rem);
+        width: min(calc(min(100dvw, 100dvh) * 0.66), 38rem);
+        aspect-ratio: 1;
+        overflow: hidden;
+        isolation: isolate;
+        display: block;
+      }
+
+      .flower__group,
+      .flower__core {
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      .flower__group--echo {
+        animation: breathe-echo var(--duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        opacity: 0.18;
+      }
+
+      .flower__group--main {
+        animation: breathe-main var(--duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+
+      .petal {
+        fill: url(#petal-fill);
+        mix-blend-mode: screen;
+      }
+
+      .flower__group--main .petal {
+        opacity: 0.54;
+      }
+
+      .flower__group--echo .petal {
+        opacity: 0.16;
+      }
+
+      .flower__core {
+        fill: url(#core-fill);
+        mix-blend-mode: screen;
+        opacity: 0.5;
+        filter: blur(12px);
+        animation: breathe-core var(--duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+
+      @keyframes breathe-main {
+        0%,
+        100% {
+          transform: scale(0.62);
+          opacity: 0.8;
+        }
+
+        40% {
+          transform: scale(1.04);
+          opacity: 0.9;
+        }
+      }
+
+      @keyframes breathe-echo {
+        0%,
+        100% {
+          transform: scale(0.54);
+          opacity: 0.1;
+        }
+
+        40% {
+          transform: scale(1.1);
+          opacity: 0.2;
+        }
+      }
+
+      @keyframes breathe-core {
+        0%,
+        100% {
+          transform: scale(0.68);
+          opacity: 0.3;
+        }
+
+        40% {
+          transform: scale(1.12);
+          opacity: 0.54;
+        }
+      }
+
+      @keyframes breathe-halo {
+        0%,
+        100% {
+          transform: scale(0.62);
+          opacity: 0.28;
+        }
+
+        40% {
+          transform: scale(1.08);
+          opacity: 0.46;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .halo,
+        .flower__group,
+        .flower__core {
+          animation-duration: 20s;
+        }
+      }
+    </style>
   </head>
   <body>
     <main class="app" aria-label="Breathing animation">
